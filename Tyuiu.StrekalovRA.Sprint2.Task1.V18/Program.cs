@@ -1,6 +1,6 @@
 ﻿using Tyuiu.StrekalovRA.Sprint2.Task1.V18.Lib;
 
-namespace Tyuiu.StrekalovRA.Sprint2.Task0.V6
+namespace Tyuiu.StrekalovRA.Sprint2.Task1.V18
 {
     class Program
     {
