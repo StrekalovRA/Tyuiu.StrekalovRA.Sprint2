@@ -7,7 +7,7 @@ namespace Tyuiu.StrekalovRA.Sprint2.Task3.V9.Lib
         public double Calculate(double x)
         {
             double A;
-            if (x == 7 || x == 0) { return -1; } // исключения делений на 0: x ≠ 7
+            if (x == 7) { return -1; } // исключения делений на 0: x ≠ 7
 
             if (x>0) { A = x * Math.Pow(((x+15)/(x-7)), x); } // x ≠ 7
             else {
