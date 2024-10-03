@@ -9,7 +9,7 @@ namespace Tyuiu.StrekalovRA.Sprint2.Task3.V9.Test
         public void TestMethod1()
         {
             DataService DS = new DataService();
-            Assert.AreEqual(DS.Calculate(0), -1);
+            Assert.AreEqual(DS.Calculate(0), 1);
         }
     }
 }

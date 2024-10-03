@@ -1,4 +1,5 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint2;
+﻿using System.ComponentModel;
+using tyuiu.cources.programming.interfaces.Sprint2;
 
 namespace Tyuiu.StrekalovRA.Sprint2.Task5.V13.Lib
 {
@@ -12,17 +13,34 @@ namespace Tyuiu.StrekalovRA.Sprint2.Task5.V13.Lib
             // Определяем последний день текущего месяца
             int Final_Day_In_Month = Amount_Days_In_Months[m - 1];
 
-            // Дефолт
-            if (Day != Final_Day_In_Month) { Day += 1; }
+            switch (m) // проверка месяца
+            {
+                case 12: // если последний месяц
+                    if (Day == Final_Day_In_Month) {
+                        Day = 1; Month = 1; Year = g + 1; // последний день месяца
+                    } else {
+                        Day += 1; // Дефолт
+                    }
+                    break;
 
-            // Случай, если последний день месяца (но не последний месяц в году)
-            if (m <= 11 && Day == Final_Day_In_Month) { Day = 1; Month = m + 1; }
+                default: // если месяц НЕ последний
+                    if (Day == Final_Day_In_Month) {
+                        Day = 1; Month = m + 1; // последний день месяца
+                    } else {
+                        Day += 1; // Дефолт
+                    }
+                    break; // break  здесь не требуется, но выдаёт ошибку :(
+            }
 
-            // Случай, если последний день последнего месяца
-            if (m == 12 && Day == Final_Day_In_Month) { Day = 1; Month = 1; Year = g + 1; }
+            string Day_String = Convert.ToString(Day);
+            string Month_String = Convert.ToString(Month);
+            string Year_String = Convert.ToString(Year);
 
-            string Date = Convert.ToString(Day) + "/" + Convert.ToString(Month) + "/" + Convert.ToString(Year);
-            return Date;
+            // Добавим "0...", если месяц или день меньше 10
+            if (Day < 10) Day_String = "0" + Convert.ToString(Day);
+            if (Month < 10) Month_String = "0" + Convert.ToString(Month);
+
+            return Day_String + "." + Month_String + "." + Year_String;
         }
     }
 }
